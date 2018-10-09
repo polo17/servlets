@@ -77,7 +77,8 @@ public class DAOTest {
 	 * Test of deleteCustomer method, of class DAO.
 	 * @throws simplejdbc.DAOException
 	 */
-	@Test @Ignore // Ce test est désactivé, pourquoi ?
+	@Test @Ignore // Ce test est désactivé, pourquoi ? //parce que ça va supprimer un client donc quand on va relancer 
+                        //les tests ils ne vont plus marcher : par exemple de nombre de clients ne sera plus égal à 13 mais à 12
 	public void testDeleteCustomerWithoutOrder () throws DAOException {
 		int id = 25; // Le client 25 n'a pas de bon de commande
 		assertEquals(1, myDAO.deleteCustomer(id));
