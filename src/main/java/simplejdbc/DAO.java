@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +14,7 @@ import javax.sql.DataSource;
 
 public class DAO {
 
-	private final DataSource myDataSource;
+	public final DataSource myDataSource;
 
 	/**
 	 *
@@ -109,7 +110,7 @@ public class DAO {
 	 * @return l'enregistrement correspondant dans la table CUSTOMER, ou null si pas trouvé
 	 * @throws DAOException
 	 */
-	CustomerEntity findCustomer(int customerID) throws DAOException {
+	public CustomerEntity findCustomer(int customerID) throws DAOException {
 		//Object result = new Object();
                 CustomerEntity result;
 
@@ -142,7 +143,7 @@ public class DAO {
 	 * @return la liste des clients habitant dans cet état
 	 * @throws DAOException
 	 */
-	List<CustomerEntity> customersInState(String state) throws DAOException {
+	public List<CustomerEntity> customersInState(String state) throws DAOException {
 		List<CustomerEntity> result = new ArrayList<CustomerEntity>();
 
 		String sql = "SELECT * FROM CUSTOMER WHERE STATE=?";
@@ -169,5 +170,7 @@ public class DAO {
 
 		return  result;
 	}
+        
+
 
 }
